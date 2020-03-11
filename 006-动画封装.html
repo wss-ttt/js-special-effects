@@ -43,21 +43,23 @@
     var timer = null;
     // 运动到200
     btn1.onclick = function () {
-        timer = setInterval(function () {
+        /* timer = setInterval(function () {
             box2.style.left = box2.offsetLeft + 10 + 'px';
             if (box2.offsetLeft === 200) {
                 clearInterval(timer);
             }
-        }, 30);
+        }, 30); */
+        animate(200);
     }
     // 运动到200
     btn2.onclick = function () {
-        timer = setInterval(function () {
+        /* timer = setInterval(function () {
             box2.style.left = box2.offsetLeft + 10 + 'px';
             if (box2.offsetLeft === 400) {
                 clearInterval(timer);
             }
-        }, 30);
+        }, 30); */
+        animate(400);
     }
     // 动画函数封装
     function animate(target) {
