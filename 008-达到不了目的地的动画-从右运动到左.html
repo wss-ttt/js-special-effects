@@ -73,7 +73,7 @@
             box2.style.left = box2.offsetLeft - 7 + 'px';
             // 如果剩余的距离 不够一个步长7,就直接停止掉定时器
             // 同时 直接让元素.style.left = 200px
-            if (Math.abs(distance) <= Math.abs(-7)) {
+            if (Math.abs(distance) < Math.abs(-7)) {
                 clearInterval(timer);
                 box2.style.left = '200px';
             }
