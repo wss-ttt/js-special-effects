@@ -42,11 +42,11 @@
     var box2 = document.getElementById('box2');
     // 运动到200
     btn1.onclick = function () {
-        _animate(200);
+        _animate(box2,60);
     }
     // 运动到200
     btn2.onclick = function () {
-        _animate(400);
+        _animate(box2,400);
     }
 
     // 把元素作为参数传递进去
@@ -57,7 +57,7 @@
             var distance = target - ele.offsetLeft;
             ele.style.left = ele.offsetLeft + step + 'px';
             if (Math.abs(distance) < Math.abs(step)) {
-                ele.style = target + 'px';
+                ele.style.left = target + 'px';
                 clearInterval(ele.timer);
             }
         }, 30);
