@@ -56,7 +56,7 @@
         ele.timer = setInterval(function () {
             var distance = target - ele.offsetLeft;
             ele.style.left = ele.offsetLeft + step + 'px';
-            if (Math.abs(distance) < Math.abs(step)) {
+            if (Math.abs(distance) <= Math.abs(step)) {
                 ele.style.left = target + 'px';
                 clearInterval(ele.timer);
             }

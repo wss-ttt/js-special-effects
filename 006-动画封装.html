@@ -81,7 +81,7 @@
             var distance = target - box2.offsetLeft;
             box2.style.left = box2.offsetLeft + step + 'px';
             // 因为步长step 有正有负  所以我们也需要对step使用绝对值
-            if (Math.abs(distance) < Math.abs(step)) {
+            if (Math.abs(distance) <= Math.abs(step)) {
                 box2.style.left = target + 'px';
                 clearInterval(timer);
             }
