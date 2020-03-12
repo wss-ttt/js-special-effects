@@ -62,6 +62,8 @@
     var count = 0;
     // 运动到200
     btn1.onclick = function () {
+        // 保证每次只能开启一个定时器,防止不停的点击按钮,速度越来越快
+        clearInterval(timer);
         // 这个代码是到达不了200的目的地
         /* timer = setInterval(function () {
             // 后面一定要加单位
