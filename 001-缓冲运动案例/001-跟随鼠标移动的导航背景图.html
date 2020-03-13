@@ -75,12 +75,24 @@
     var span = document.getElementsByTagName('span')[0];
     // 获取li的宽度
     var liWidth = lis[0].offsetWidth;
+    var index = 0;
     // 添加事件
     for (var i = 0; i < lis.length; i++) {
-        // 添加自定义属性
+        // 1.添加自定义属性
         lis[i].index = i;
+        // 2.添加鼠标移入事件
         lis[i].onmouseover = function () {
             // 我们是让span元素进行移动
+            animate(span, this.index * liWidth);
+        }
+        // 3.添加鼠标移出事件
+        lis[i].onmouseout = function () {
+            // 回到开始的地方
+            animate(span, index*liWidth);
+        }
+        // 4.添加单击事件
+        lis[i].onclick = function () {
+            index = this.index;
             animate(span, this.index * liWidth);
         }
     }
