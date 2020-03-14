@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #000;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        好好学习 天天向上
+        好好学习 天天向上
+        好好学习 天天向上
+        好好学习 天天向上
+    </div>
+</body>
+<script>
+    /*
+        scrollWidth 和 scrollHeight
+        1.不包括 border 
+        2.不包括 margin
+        3.包括padding
+        4.scrollWidth / scrollHeight  = padding +width
+
+
+        scrollHeight 特殊:
+        1.如果文字超出了盒子的高度,高度为超出盒子的内容的高度
+        2.如果文字没有超出盒子,那么就是盒子本身的高度
+        注意:
+        ie7(含)以下版本,是如下特点啊
+        1.如果文字超出了盒子的高度,高度为超出盒子的内容的高度(和上面一样)
+        2.如果文字没有超出盒子,盒子中内容的高度
+        ie7(含)以下版本,总结成一句话,scrollHeight的高度是盒子内容的高度
+    */
+    var div = document.getElementsByTagName('div')[0];
+    console.log(div.scrollWidth);
+    console.log(div.scrollHeight);
+
+</script>
+
+</html>
