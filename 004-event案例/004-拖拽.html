@@ -75,7 +75,7 @@
                 // 获取鼠标点击的点在盒子中的位置
                 // 将来移动的时候减去, 保证鼠标在盒子的点击的地方
                 var x = pageX - dialog.offsetLeft;
-                var y = pageY -dialog.offsetTop;
+                var y = pageY - dialog.offsetTop;
                 // console.log('鼠标按下');
                 // 4.鼠标移动事件
                 document.onmousemove = function (e) {
@@ -90,10 +90,10 @@
                 }
             }
             // 5.鼠标弹起事件
-            header.onmouseup = function(){
+            header.onmouseup = function () {
                 console.log('解绑');
                 // 6.解绑onmousemove事件
-                document.onmousemove = null; 
+                document.onmousemove = null;
             }
         }
         function scroll() {
