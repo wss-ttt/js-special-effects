@@ -11,29 +11,30 @@
             height: 300px;
             background-color: steelblue;
             margin: 200px auto;
-            color:#fff;
+            color: #fff;
         }
     </style>
 </head>
 
 <body>
     <div>
-        鼠标在当前盒子中的x坐标:<span id="x"></span>
+        鼠标在当前盒子中的x坐标:<span id="xBox"></span>
         <br>
-        鼠标在当前盒子中的x坐标:<span id="y"></span>
+        鼠标在当前盒子中的x坐标:<span id="yBox"></span>
     </div>
     <script>
         var div = document.getElementsByTagName('div')[0];
-        var x = document.getElementById('x');
-        var y = document.getElementById('y');
+        var xBox = document.getElementById('xBox');
+        var yBox = document.getElementById('yBox');
         div.onmousemove = function (e) {
-            var event = e ||window.event;
+            var event = e || window.event;
             var pageX = event.pageX || (scroll().left + event.clientX);
             var pageY = event.pageY || (scroll().top + event.clientY);
-            var divX = div.offsetLeft;
-            var divY = div.offsetTop;
-            x.innerHTML = pageX - divX;
-            y.innerHTML = pageY - divY;
+            // 求出: 鼠标点击的点在盒子中的坐标值
+            var x = pageX - div.offsetLeft;
+            var y = pageY - div.offsetTop;
+            xBox.innerHTML = x;
+            yBox.innerHTML = y;
         }
         function scroll() {
             return {
