@@ -10,7 +10,9 @@
             margin: 0;
             padding: 0;
         }
-
+        body{
+            background-color: rgba(0,0,0,.3);
+        }
         i {
             font-style: normal;
         }
@@ -20,10 +22,11 @@
             height: 300px;
             border: 5px solid #eee;
             box-shadow: 2px 2px 2px 2px #666;
+            background-color: #fff;
             position: absolute;
-            /* top: 50%; */
-            /* left: 50%; */
-            /* transform: translate(-50%, -50%); */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .dialog .dialog-header {
@@ -89,14 +92,14 @@
                     var top = yy - y;// 一定要减去鼠标在点击区域中的坐标值y
                     dialog.style.left = left + 'px';
                     dialog.style.top = top + 'px';
-                    //禁止文本选中（选中后取消）
+                    //禁止文本选中（选中后取消）  下面这个代码也需要 否则也会出现bug
                     window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
                 }
             }
             // 5.鼠标弹起事件
             // 这个地方的事件源可以是 header
             // 也可以是 document
-            document.onmouseup = function () {
+            header.onmouseup = function () {
                 console.log('解绑');
                 // 6.解绑onmousemove事件
                 document.onmousemove = null;
