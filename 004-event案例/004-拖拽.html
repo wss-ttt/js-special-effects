@@ -83,10 +83,11 @@
                     var event = e || window.event;
                     var xx = event.pageX || (scroll().left + event.clientX);
                     var yy = event.pageY || (scroll().top + event.clientY);
-                    var left = xx - x;
-                    var top = yy - y;
-                    dialog.style.left = left + 'px';
-                    dialog.style.top = top + 'px';
+                    // 关键代码,没有下面两行代码 就会出现问题
+                    var left = xx - x;// 一定要减去鼠标在点击区域中的坐标值x
+                    var top = yy - y;// 一定要减去鼠标在点击区域中的坐标值y
+                    dialog.style.left = xx + 'px';
+                    dialog.style.top = yy + 'px';
                 }
             }
             // 5.鼠标弹起事件
