@@ -84,14 +84,19 @@
                     var xx = event.pageX || (scroll().left + event.clientX);
                     var yy = event.pageY || (scroll().top + event.clientY);
                     // 关键代码,没有下面两行代码 就会出现问题
+                    // 也就是往鼠标停留在点击的地方
                     var left = xx - x;// 一定要减去鼠标在点击区域中的坐标值x
                     var top = yy - y;// 一定要减去鼠标在点击区域中的坐标值y
-                    dialog.style.left = xx + 'px';
-                    dialog.style.top = yy + 'px';
+                    dialog.style.left = left + 'px';
+                    dialog.style.top = top + 'px';
+                    //禁止文本选中（选中后取消）
+                    window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
                 }
             }
             // 5.鼠标弹起事件
-            header.onmouseup = function () {
+            // 这个地方的事件源可以是 header
+            // 也可以是 document
+            document.onmouseup = function () {
                 console.log('解绑');
                 // 6.解绑onmousemove事件
                 document.onmousemove = null;
