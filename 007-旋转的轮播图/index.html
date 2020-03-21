@@ -55,6 +55,7 @@
             var arrow = slide.children[1];
             var prevBtn = arrow.children[0];
             var nextBtn = arrow.children[1];
+            var flag = true;
             // 2.移入大盒子 左右箭头显示(这里改变的是透明)
             slide.onmouseenter = function () {
                 // arrow.style.opacity = 1;
@@ -75,29 +76,38 @@
             }
             // 5.旋转
             // 上
-            prevBtn.onclick = function(){
-                move(true);
+            prevBtn.onclick = function () {
+                if (flag) {
+                    flag = false;
+                    move(true);
+                }
             }
             // 下
-            nextBtn.onclick = function(){
-                move(false);
+            nextBtn.onclick = function () {
+                if (flag) {
+                    flag = false;
+                    move(false);
+                }
             }
-            function move(bool){
-                if(bool){
+            function move(bool) {
+                if (bool) {
                     // 反向旋转,删除数组中的最后一个样式,添加到最前
                     // push 末尾添加
                     // pop  删除最后一个元素
                     // unshift  在前面添加
                     // shift  删除第一位
                     arr.unshift(arr.pop());
-                    
-                }else{
+
+                } else {
                     // 正向旋转,删除数组中的第一个样式,添加到最后
                     arr.push(arr.shift());
                 }
                 // 重新给li赋值样式
                 for (var i = 0; i < lis.length; i++) {
-                    animate(lis[i], arr[i]);
+                    animate(lis[i], arr[i], function () {
+                        // 上一个动画执行完以后,变成true
+                        flag = true;
+                    });
                 }
             }
 
