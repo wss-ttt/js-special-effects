@@ -16,19 +16,21 @@
 
 <body>
 
-    <button type="button">综合运动</button>
     <div></div>
 
     <script>
         var btnArr = document.getElementsByTagName("button");
         var div = document.getElementsByTagName("div")[0];
 
-        btnArr[0].onclick = function () {
-            var attrs = {
-                opacity:40
-            };
-            // 传递一个对象(包含多个属性)
-            animate(div, attrs);
+        div.onmouseover = function(){
+            animate(this,{
+                opacity:30
+            });
+        }
+        div.onmouseout = function(){
+            animate(this,{
+                opacity:100
+            });
         }
         //参数右变为3个
         function animate(ele, attr, fn) {
