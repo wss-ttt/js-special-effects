@@ -68,6 +68,33 @@
             font-size: 12px;
         }
 
+        .container .tips {
+            width: 220px;
+            height: 20px;
+            background-image: url(images/strong.jpg);
+            background-repeat: no-repeat;
+        }
+
+        /*等级1:弱*/
+        .grade1 {
+            background-position: 0 -20px;
+        }
+
+        /*等级2:一般*/
+        .grade2 {
+            background-position: 0 -40px;
+        }
+
+        /*等级3:很好*/
+        .grade3 {
+            background-position: 0 -60px;
+        }
+
+        /*等级4:极佳*/
+        .grade4 {
+            background-position: 0 -80px;
+        }
+
         /*校验正确的样式*/
         .right {
             color: #67C23A;
@@ -120,11 +147,12 @@
                 <span></span>
             </div>
         </div>
-        <div class="tips">
 
-        </div>
+        <div class="tips" id="pwd-grade"></div>
+
     </div>
     <script>
+        var grade = document.getElementById('pwd-grade');
         // 1.QQ校验
         onBlur('qq', function () {
             var reg = /^[1-9][0-9]{4,}$/;
@@ -179,7 +207,22 @@
             if (reg.test(this.value)) {
                 setHTML(this, '输入正确');
                 setClassName(this, 'right');
+                grade.className = 'tips grade1'
+                // 只要密码校验通过了,才能执行密码强度校验
+                // 从强往弱进行判断
+                if (/^[A-Za-z0-9]+[_$][A-Za-z0-9]*$/.test(this.value)) {
+                    // 极佳
+                    grade.className = 'tips grade4';
+                } else if (/^([a-z].*[0-9])|([A-Z].*[0-9])|[0-9].*[a-zA-Z]$/.test(this.value)) {
+                    // 很好
+                    grade.className = 'tips grade3';
+                } else if (/^([a-z].*[A-Z])|([A-Z].*[a-z])$/.test(this.value)) {
+                    // 一般
+                    grade.className = 'tips grade2';
+                }
             } else {
+                // 这个需要还原操作
+                grade.className = 'tips';
                 setHTML(this, '输入错误');
                 setClassName(this, 'wrong');
             }
