@@ -8,6 +8,14 @@
 <body>
     <script>
         // 1.预定义类
+        // . 匹配非空字符 [^\n\r]	 
+        // 也就是 除了换行和回车之外的任意字符（“  ” 不是非空字符）
+        console.log(/./.test('')); // false
+        console.log(/./.test(' ')); // true
+        console.log(/./.test('\n')); // false
+        console.log(/./.test('\r')); // false
+        console.log(/./.test('aaa'));  // true
+
         // \d: 匹配数字 [0-9]
         console.log(/\d/.test(11));  // true
         // \D: 匹配非数字 [^0-9]	
