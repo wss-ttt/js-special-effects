@@ -51,6 +51,7 @@
             window.onscroll = function () {
                 if (scroll().top > height) {
                     // 1.添加类名
+                    // bug#001
                     // nav.className += ' fixed'; // 会重复添加多个类名
                     nav.classList.add('fixed') // 通过这种方式不会 因为内部会进行判断
                     // 2.因为导航条悬浮起来了,不占有空间
